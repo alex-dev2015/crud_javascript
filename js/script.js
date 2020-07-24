@@ -1,17 +1,15 @@
-window.addEventListener('load', start);
+let globalNames = ['Alex Sousa', 'João Dias', 'Alberto Almeida', 'Bartolomeu Júnior'];
+let inputName = null;
+let isEditing = false;
+let currentIndex = null;
 
-var globalNames = ['Alex Sousa', 'João Dias', 'Alberto Almeida', 'Bartolomeu Júnior'];
-var inputName = null;
-var isEditing = false;
-var isEditing = null;
-
-function start(){
+window.addEventListener('load', () => {
     inputName = document.querySelector('#name_user');
     preventFormSubmit();
     activateInput();
     render();
-    
-}
+});
+
 
 function preventFormSubmit(){
     function handleFormSubmit(event){
@@ -25,8 +23,8 @@ function preventFormSubmit(){
 
 function activateInput(){
     function insertName(newName){
-        globalNames.push(newName);
-        
+        // globalNames.push(newName);
+        globalNames = [...globalNames, newName];
     }
 
     function updateName(newName){
@@ -56,8 +54,8 @@ function activateInput(){
 function render(){
    function createDeleteButton(index){
       function deleteName(){
-          console.log(index);
-         globalNames.splice(index, 1);
+        globalNames = globalNames.filter((_, i) => i !== index);
+
          render();
       }  
 
@@ -111,8 +109,13 @@ function render(){
    clearInput();
 }
 
-function clearInput(){
-   inputName.value = '';
-   inputName.focus(); 
+// function clearInput(){
+//    inputName.value = '';
+//    inputName.focus(); 
+// }
+
+const clearInput = () => {
+    inputName.value = '';
+    inputName.focus();
 }
 
