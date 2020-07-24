@@ -40,4 +40,7 @@ End with an example of getting some data out of the system or using it for a lit
 
 ## Usage <a name = "usage"></a>
 
+![CRUD](https://github.com/alex-dev2015/crud_javascript/blob/master/img/CRUD.gif)
+
+
 
